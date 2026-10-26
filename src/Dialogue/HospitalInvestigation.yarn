@@ -1,0 +1,85 @@
+//------------------------------------------------------------------------
+// Hospital Alert Investigation
+// Story id used by collect_evidence: hospital_alert
+//------------------------------------------------------------------------
+
+title: HospitalWitnessApproach
+---
+<<declare $hospitalWitnessApproached = false>>
+<<declare $hospitalWitnessTalkCompleted = false>>
+<<declare $maintenanceTalkCompleted = false>>
+
+<<if $hospitalWitnessApproached == true>>
+    <<stop>>
+<<endif>>
+
+<<disable_controls "Player">>
+<<set_patrol "HospitalWitness" false>>
+
+<<walk_to "HospitalWitness" "Player" 2 true>>
+<<face "HospitalWitness" "Player">>
+<<face "Player" "HospitalWitness">>
+
+Witness: Hey—sorry to bother you. Do you work for the press?
+Witness: I'm on the night shift at Central District Hospital.
+
+You: The state says rebels blew up the generator. What did you see?
+
+Witness: I was here when the alert went out. No explosion. No rebels. Nothing like that.
+Witness: Just the same blackout we've had for weeks.
+
+You: So the bulletin isn't true?
+
+Witness: I work here. I didn't see any attack.
+Witness: Talk to maintenance near the service entrance—they'll tell you those generators have been dead for weeks.
+
+<<collect_evidence "hospital_alert" "no_rebels_seen">>
+<<set $hospitalWitnessApproached = true>>
+<<set $hospitalWitnessTalkCompleted = true>>
+<<set_enabled "HospitalWitnessDialogue" true>>
+<<set_enabled "MaintenanceWorkerDialogue" true>>
+<<show_text "QuestTalkToMaintenance">>
+
+<<set_patrol "HospitalWitness" true>>
+<<enable_controls "Player">>
+===
+
+title: HospitalWitnessDialogue
+---
+<<if $hospitalWitnessTalkCompleted == false>>
+    <<stop>>
+<<endif>>
+
+<<disable_controls "Player">>
+<<face "HospitalWitness" "Player">>
+<<face "Player" "HospitalWitness">>
+
+Witness: Like I said—no rebels. Just broken equipment and state announcements.
+Witness: Maintenance is still near the service entrance. They'll point you behind the hospital.
+
+<<enable_controls "Player">>
+===
+
+title: HospitalMaintenanceTalk
+---
+<<if $maintenanceTalkCompleted == true>>
+    Maintenance Worker: Round back, behind the hospital. You'll see both units offline.
+    <<stop>>
+<<endif>>
+
+<<disable_controls "Player">>
+<<set_patrol "MaintenanceWorker" false>>
+<<face "MaintenanceWorker" "Player">>
+<<face "Player" "MaintenanceWorker">>
+
+Maintenance Worker: Generators? Been busted for weeks. Neglect, not sabotage.
+Maintenance Worker: We logged failures three weeks ago. No one from the state ever fixed them.
+Maintenance Worker: If you want proof, go behind the hospital—you can see the backup unit yourself.
+
+<<collect_evidence "hospital_alert" "generator_broken_weeks">>
+<<set $maintenanceTalkCompleted = true>>
+<<show_text "QuestPhotographGenerator">>
+
+<<set_patrol "MaintenanceWorker" true>>
+<<enable_controls "Player">>
+===

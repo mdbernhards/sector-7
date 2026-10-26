@@ -1,0 +1,21 @@
+//------------------------------------------------------------------------
+// Canal proximity investigation beat
+// Story id used by collect_evidence: real
+//------------------------------------------------------------------------
+
+title: CanalProximityArrival
+---
+<<declare $canalProximityChecked = false>>
+
+<<if $canalProximityChecked == true>>
+    You: The canal water definitely looks dirty, but I still need solid proof.
+    You: I should photograph something concrete before making a verdict.
+    <<stop>>
+<<endif>>
+
+You: The water is cloudy and smells wrong, but this alone is not enough evidence.
+You: I need stronger proof from the canal itself.
+
+<<collect_evidence "real" "arrived_canal_edge">>
+<<set $canalProximityChecked = true>>
+===
