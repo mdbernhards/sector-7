@@ -4,31 +4,49 @@
 
 ## Overview
 
-Sector 7 is a third person investigation game set in a dystopian futuristic city. The player is a journalist android who examines news posts, talks to citizens and collects evidence to decide which stories are real or fake.
+Sector 7 is a third person investigation game set in a dystopian futuristic city. The player is a journalist who examines news posts, talks to citizens and collects evidence to decide which stories are real or fake.
 
 We developed the game during the second part of Saxion's Beginning Serious Game Design minor, after the Unity Fundamentals, Design Fundamentals and Art Fundamentals modules. Our chosen wicked problem was political polarisation caused by misinformation ecosystems.
 
-The aim was to encourage critical thinking and media literacy through investigation. We carried out limited usability testing and gathered initial feedback.
+The aim was to encourage critical thinking and media literacy through investigation. We carried out limited user testing and gathered initial feedback.
 
 ## Gameplay
 
-The prototype contains three investigations: a fraudulent compliance fee post, canal pollution and a government claim about sabotage at a hospital.
+The prototype contains three investigations: a compliance fee post, canal pollution and a government claim about sabotage at a hospital.
+
+You need to decide which story is real and which is fake.
 
 1. Read a claim in the DataRig news feed and inspect potential clues.
-2. Explore the city, speak to NPCs and photograph relevant subjects.
-3. Review collected evidence and use a limited number of analysis tokens to double check if evidence is real.
-4. Choose a real/fake verdict for each story and submit the day's decisions.
+2. Explore the city, speak to NPCs and photograph relevant evidence.
+3. Review collected evidence to determine the posts validity.
+4. Choose a real/fake verdict for each post and submit the day's decisions.
 5. Review the results and see peoples "trust score" for you.
 
 Only the first day is playable in the final prototype.
 
 ## Screenshots
 
-TODO
+![The player outside the hospital](pictures/ByTheHospital.png)
+
+**Exploring the city outside the hospital.**
+
+![Investigation dialogue beside the canal](pictures/DialogueNextToCanal.png)
+
+**Investigating signs of pollution beside the canal.**
+
+![DataRig news feed and evidence interface](pictures/DataRigMenu.png)
+
+**Reviewing news posts, analysing evidence and choosing a verdict in the DataRig.**
+
+![Overview of the city in the Unity editor](pictures/MapOverview.png)
+
+**An overview of the city layout.**
 
 ## Gameplay Video
 
-TODO
+[![Watch the Sector 7 gameplay video on YouTube](pictures/Thumbnail.png)](https://youtu.be/kGgeZPuvfn4)
+
+**[Watch the gameplay video on YouTube.](https://youtu.be/kGgeZPuvfn4)**
 
 ## My Contributions
 
@@ -54,8 +72,8 @@ Jesse created the final UI visual redesign and contributed substantially to menu
 
 The final game and its design were collaborative.
 
-## Source and Limitations
+## Repositories Limitations
 
-Scenes, prefabs, story assets, models, textures, audio, packages and several supporting classes are omitted. The selection is not expected to compile or run on its own. No playable download is provided.
+Scenes, prefabs, story assets, models, textures, audio, packages and several supporting classes are not included. This repository is not expected to compile or run on its own.
 
-The prototype is unfinished. It contains only one playable day, has limited testing.
+The prototype is unfinished. It contains only one playable day and has had limited testing.
